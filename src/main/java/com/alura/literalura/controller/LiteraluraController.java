@@ -63,7 +63,15 @@ public class LiteraluraController {
             System.out.println("Nome: " + autor.getName());
             System.out.println("Nascimento: " + autor.getBirthYear());
             System.out.println("Nascimento: " + autor.getDeathYear());
-            // Imprima ou processe as informações do autor conforme necessário
+        }
+    }
+
+    public void listarAutoresVivosNoAno(int year) {
+        List<AutorModel> autores = autorService.listarAutoresVivosNoAno(year);
+        for (AutorModel autor : autores) {
+            System.out.println("Nome: " + autor.getName());
+            System.out.println("Nascimento: " + autor.getBirthYear());
+            System.out.println("Nascimento: " + autor.getDeathYear());
         }
     }
 }

@@ -49,4 +49,8 @@ public class LivroService {
     public List<AutorModel> listarAutorService(String name) {
         return autorRepository.findByName(name);
     }
+
+    public List<AutorModel> listarAutoresVivosNoAno(int year) {
+        return autorRepository.findAuthorsAliveInYear(year);
+    }
 }

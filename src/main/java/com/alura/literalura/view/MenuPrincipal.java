@@ -48,6 +48,9 @@ public class MenuPrincipal {
                 case 4:
                     System.out.println("___________________________________________");
                     System.out.println("Listando autores vivos no ano.......");
+                    System.out.println("Digite o ano:");
+                    int year = scanner.nextInt();
+                    literAluraController.listarAutoresVivosNoAno(year);
                     break;
                 case 5:
                     System.out.println("___________________________________________");
@@ -55,7 +58,7 @@ public class MenuPrincipal {
                     break;
                 case 9:
                     System.out.println("Saindo...");
-                    break;
+                    return;
                 default:
                     System.out.println("Opção inválida, tente novamente.");
             }

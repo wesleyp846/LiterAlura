@@ -12,7 +12,7 @@ public class LivroModel {
     @Column(unique = true)
     private String title;
 
-    @ElementCollection
+    //@ElementCollection
     private List<String> languages;
 
     private int downloadCount;

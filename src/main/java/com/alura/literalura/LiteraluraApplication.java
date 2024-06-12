@@ -21,4 +21,3 @@ public class LiteraluraApplication implements CommandLineRunner {
 		menuPrincipal.exibirMenu();
 	}
 }
-

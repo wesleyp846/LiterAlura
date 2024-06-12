@@ -35,8 +35,23 @@ public class MenuPrincipal {
                     break;
                 case 2:
                     System.out.println("___________________________________________");
-                    System.out.println("Listando livros do DB.......");
+                    System.out.println("Listando livros no DB.......");
                     literAluraController.listarTodosLivros();
+                    break;
+                case 3:
+                    System.out.println("___________________________________________");
+                    System.out.println("Listando autores no DB.......");
+                    System.out.println("Digite o nome do autor:");
+                    String nome = scanner.nextLine();
+                    literAluraController.listarAutorPorNome(nome);
+                    break;
+                case 4:
+                    System.out.println("___________________________________________");
+                    System.out.println("Listando autores vivos no ano.......");
+                    break;
+                case 5:
+                    System.out.println("___________________________________________");
+                    System.out.println("Listando livros em determinado idioma.......");
                     break;
                 case 9:
                     System.out.println("Saindo...");

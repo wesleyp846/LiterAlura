@@ -1,6 +1,7 @@
 package com.alura.literalura.controller;
 
 import com.alura.literalura.dto.LivroDto;
+import com.alura.literalura.model.AutorModel;
 import com.alura.literalura.model.LivroModel;
 import com.alura.literalura.service.ApiClient;
 import com.alura.literalura.service.LivroService;
@@ -18,6 +19,9 @@ public class LiteraluraController {
 
     @Autowired
     private LivroService livroService;
+
+    @Autowired
+    private LivroService autorService;
 
     public void buscarLivroPeloTitulo(String titulo) {
         try {
@@ -50,6 +54,16 @@ public class LiteraluraController {
                 System.out.println("Número de downloads: " + livro.getDownloadCount());
                 System.out.println("----------------------------");
             }
+        }
+    }
+
+    public void listarAutorPorNome(String name) {
+        List<AutorModel> autores = autorService.listarAutorService(name);
+        for (AutorModel autor : autores) {
+            System.out.println("Nome: " + autor.getName());
+            System.out.println("Nascimento: " + autor.getBirthYear());
+            System.out.println("Nascimento: " + autor.getDeathYear());
+            // Imprima ou processe as informações do autor conforme necessário
         }
     }
 }

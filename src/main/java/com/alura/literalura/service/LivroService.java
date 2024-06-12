@@ -3,7 +3,8 @@ package com.alura.literalura.service;
 import com.alura.literalura.model.AutorModel;
 import com.alura.literalura.model.LivroModel;
 import com.alura.literalura.dto.LivroDto;
-import com.alura.literalura.repository.LivroRepository;
+import com.alura.literalura.repository.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public class LivroService {
 
     @Autowired
     private LivroRepository livroRepository;
+
+    @Autowired
+    private AutorRepository autorRepository;
 
     public void salvarLivros(List<LivroDto> livrosDto) {
         for (LivroDto livroDto : livrosDto) {
@@ -40,5 +44,9 @@ public class LivroService {
 
     public List<LivroModel> listarTodosLivros() {
         return livroRepository.findAll();
+    }
+
+    public List<AutorModel> listarAutorService(String name) {
+        return autorRepository.findByName(name);
     }
 }

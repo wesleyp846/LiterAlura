@@ -2,6 +2,7 @@ package com.alura.literalura.controller;
 
 import com.alura.literalura.dto.LivroDto;
 import com.alura.literalura.model.AutorModel;
+import com.alura.literalura.model.IdiomaModel;
 import com.alura.literalura.model.LivroModel;
 import com.alura.literalura.service.ApiClient;
 import com.alura.literalura.service.LivroService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class LiteraluraController {
@@ -52,7 +54,7 @@ public class LiteraluraController {
                 System.out.println("Autor: " + livro.getAutor().getName());
                 System.out.println("Idioma: " + livro.getLanguages());
                 System.out.println("Número de downloads: " + livro.getDownloadCount());
-                System.out.println("----------------------------");
+                System.out.println("___________________________________________");
             }
         }
     }
@@ -63,6 +65,7 @@ public class LiteraluraController {
             System.out.println("Nome: " + autor.getName());
             System.out.println("Nascimento: " + autor.getBirthYear());
             System.out.println("Nascimento: " + autor.getDeathYear());
+            System.out.println("___________________________________________");
         }
     }
 
@@ -72,6 +75,19 @@ public class LiteraluraController {
             System.out.println("Nome: " + autor.getName());
             System.out.println("Nascimento: " + autor.getBirthYear());
             System.out.println("Nascimento: " + autor.getDeathYear());
+            System.out.println("___________________________________________");
+        }
+    }
+
+    public void listarLivrosPorIdioma(String idioma) {
+        List<LivroModel> livros = livroService.listarLivrosPorIdioma(idioma);
+        for (LivroModel livro : livros) {
+            System.out.println("Título: " + livro.getTitle());
+            System.out.println("Autor: " + livro.getAutor().getName());
+            System.out.println("Idiomas: " + livro.getLanguages().stream()
+                    .map(IdiomaModel::getName)
+                    .collect(Collectors.joining(", ")));
+            System.out.println("-----------------------------------");
         }
     }
 }

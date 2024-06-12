@@ -16,6 +16,7 @@ public class MenuPrincipal {
         Scanner scanner = new Scanner(System.in);
         int opcao;
         do {
+            //int opcao = -1;
             System.out.println("*** Menu Liter_Alura ***");
             System.out.println("1- Buscar livro pelo título");
             System.out.println("2- Listar livros registrados");
@@ -55,6 +56,9 @@ public class MenuPrincipal {
                 case 5:
                     System.out.println("___________________________________________");
                     System.out.println("Listando livros em determinado idioma.......");
+                    System.out.println("Digite o idioma:");
+                    String idioma = scanner.nextLine();
+                    literAluraController.listarLivrosPorIdioma(idioma);
                     break;
                 case 9:
                     System.out.println("Saindo...");

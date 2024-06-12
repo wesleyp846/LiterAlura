@@ -53,4 +53,8 @@ public class LivroService {
     public List<AutorModel> listarAutoresVivosNoAno(int year) {
         return autorRepository.findAuthorsAliveInYear(year);
     }
+
+    public List<LivroModel> listarLivrosPorIdioma(String language) {
+        return livroRepository.findByLanguage(language);
+    }
 }

@@ -12,12 +12,20 @@ public class LivroModel {
     @Column(unique = true)
     private String title;
 
-    //@ElementCollection
-    private List<String> languages;
-
     private int downloadCount;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //@ElementCollection
+    @ManyToMany
+    @JoinTable(
+            name = "livro_idioma",
+            joinColumns = @JoinColumn(name = "livro_id"),
+            inverseJoinColumns = @JoinColumn(name = "idioma_id")
+    )
+    private List<String> languages;
+
+    @ManyToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "autor_id", nullable = false)
     private AutorModel autor;
 
     public Long getId() {
@@ -59,4 +67,5 @@ public class LivroModel {
     public void setAutor(AutorModel autor) {
         this.autor = autor;
     }
+
 }

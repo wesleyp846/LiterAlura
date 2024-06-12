@@ -37,4 +37,8 @@ public class LivroService {
             }
         }
     }
+
+    public List<LivroModel> listarTodosLivros() {
+        return livroRepository.findAll();
+    }
 }

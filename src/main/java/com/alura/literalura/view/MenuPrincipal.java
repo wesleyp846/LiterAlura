@@ -28,9 +28,15 @@ public class MenuPrincipal {
 
             switch (opcao) {
                 case 1:
+                    System.out.println("___________________________________________");
                     System.out.println("Digite o título do livro: ");
                     String titulo = scanner.nextLine();
                     literAluraController.buscarLivroPeloTitulo(titulo);
+                    break;
+                case 2:
+                    System.out.println("___________________________________________");
+                    System.out.println("Listando livros do DB.......");
+                    literAluraController.listarTodosLivros();
                     break;
                 case 9:
                     System.out.println("Saindo...");

@@ -17,7 +17,7 @@ public class LivroModel {
 
     private int downloadCount;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private AutorModel autor;
 
     public Long getId() {

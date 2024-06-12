@@ -1,6 +1,7 @@
 package com.alura.literalura.controller;
 
 import com.alura.literalura.dto.LivroDto;
+import com.alura.literalura.model.LivroModel;
 import com.alura.literalura.service.ApiClient;
 import com.alura.literalura.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,21 @@ public class LiteraluraController {
             livroService.salvarLivros(livros);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void listarTodosLivros() {
+        List<LivroModel> livros = livroService.listarTodosLivros();
+        if (livros.isEmpty()) {
+            System.out.println("Nenhum livro encontrado.");
+        } else {
+            for (LivroModel livro : livros) {
+                System.out.println("Título: " + livro.getTitle());
+                System.out.println("Autor: " + livro.getAutor().getName());
+                System.out.println("Idioma: " + livro.getLanguages());
+                System.out.println("Número de downloads: " + livro.getDownloadCount());
+                System.out.println("----------------------------");
+            }
         }
     }
 }

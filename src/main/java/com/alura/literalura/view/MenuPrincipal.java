@@ -15,8 +15,8 @@ public class MenuPrincipal {
     public void exibirMenu() {
         Scanner scanner = new Scanner(System.in);
         int opcao;
-        do {
-            //int opcao = -1;
+
+        while (true) {
             System.out.println("*** Menu Liter_Alura ***");
             System.out.println("1- Buscar livro pelo título");
             System.out.println("2- Listar livros registrados");
@@ -25,7 +25,7 @@ public class MenuPrincipal {
             System.out.println("5- Listar livros em um determinado idioma");
             System.out.println("9 - Sair");
             opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir nova linha
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -57,15 +57,16 @@ public class MenuPrincipal {
                     System.out.println("___________________________________________");
                     System.out.println("Listando livros em determinado idioma.......");
                     System.out.println("Digite o idioma:");
-                    String idioma = scanner.nextLine();
-                    literAluraController.listarLivrosPorIdioma(idioma);
+    //                    String idioma = scanner.nextLine();
+    //                    literAluraController.listarLivrosPorIdioma(idioma);
                     break;
                 case 9:
                     System.out.println("Saindo...");
-                    return;
+                    scanner.close();
+                    System.exit(0);
                 default:
                     System.out.println("Opção inválida, tente novamente.");
             }
-        } while (opcao != 9);
+        }
     }
 }

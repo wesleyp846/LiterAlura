@@ -4,7 +4,7 @@ import java.util.List;
 
 public class LivroDto {
     private String title;
-    private List<String> languages;
+    private String languages;
     private int downloadCount;
     private AutorDto autor;
 
@@ -16,11 +16,11 @@ public class LivroDto {
         this.title = title;
     }
 
-    public List<String> getLanguages() {
+    public String getLanguages() {
         return languages;
     }
 
-    public void setLanguages(List<String> languages) {
+    public void setLanguages(String languages) {
         this.languages = languages;
     }
 

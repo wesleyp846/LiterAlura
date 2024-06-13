@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "livro_model")
 public class LivroModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,14 +15,18 @@ public class LivroModel {
 
     private int downloadCount;
 
-    //@ElementCollection
-    @ManyToMany
-    @JoinTable(
-            name = "livro_idioma",
-            joinColumns = @JoinColumn(name = "livro_id"),
-            inverseJoinColumns = @JoinColumn(name = "idioma_id")
-    )
-    private List<String> languages;
+    private String languages;
+
+//    //@ElementCollection
+//    @ManyToOne(cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "idioma_model",
+//            joinColumns = @JoinColumn(name = "livro_id"),
+//            inverseJoinColumns = @JoinColumn(name = "idioma_id")
+//    )
+//    @JoinColumn(name = "idioma_id", nullable = false)
+//    private IdiomaModel languages;
 
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
@@ -44,11 +49,11 @@ public class LivroModel {
         this.title = title;
     }
 
-    public List<String> getLanguages() {
+    public String getLanguages() {
         return languages;
     }
 
-    public void setLanguages(List<String> languages) {
+    public void setLanguages(String languages) {
         this.languages = languages;
     }
 

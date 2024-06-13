@@ -28,7 +28,16 @@ public class ApiClient {
             for (JsonNode node : results) {
                 LivroDto livro = new LivroDto();
                 livro.setTitle(node.get("title").asText());
-                livro.setLanguages(mapper.convertValue(node.get("languages"), List.class));
+
+                JsonNode languagesNode = node.get("languages");
+                if (languagesNode != null && languagesNode.isArray() && !languagesNode.isEmpty()) {
+                    String firstLanguage = languagesNode.get(0).asText();
+                    livro.setLanguages(firstLanguage);
+                } else {
+                    livro.setLanguages("N/A");
+                }
+                //livro.setLanguages(mapper.convertValue(node.get("languages"), List.class));
+
                 livro.setDownloadCount(node.get("download_count").asInt());
 
                 AutorDto autor = new AutorDto();

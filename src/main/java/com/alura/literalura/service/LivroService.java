@@ -54,7 +54,7 @@ public class LivroService {
         return autorRepository.findAuthorsAliveInYear(year);
     }
 
-    public List<LivroModel> listarLivrosPorIdioma(String language) {
-        return livroRepository.findByLanguage(language);
-    }
+//    public List<LivroModel> listarLivrosPorIdioma(String language) {
+//        return livroRepository.findByLanguage(language);
+//    }
 }

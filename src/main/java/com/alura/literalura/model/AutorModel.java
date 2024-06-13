@@ -3,11 +3,11 @@ package com.alura.literalura.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "autor_model")
 public class AutorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 //    @Column(unique = true)
     private String name;
     private Integer birthYear;

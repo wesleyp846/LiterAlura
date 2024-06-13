@@ -2,6 +2,8 @@ package com.alura.literalura.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "autor_model")
 public class AutorModel {
@@ -12,6 +14,9 @@ public class AutorModel {
     private String name;
     private Integer birthYear;
     private Integer deathYear;
+
+    @OneToMany(mappedBy = "autor")
+    private List<LivroModel> livros;
 
     public Long getId() {
         return id;
@@ -43,5 +48,13 @@ public class AutorModel {
 
     public void setDeathYear(Integer deathYear) {
         this.deathYear = deathYear;
+    }
+
+    public List<LivroModel> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(List<LivroModel> livros) {
+        this.livros = livros;
     }
 }

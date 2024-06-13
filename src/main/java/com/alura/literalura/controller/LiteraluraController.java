@@ -48,11 +48,12 @@ public class LiteraluraController {
             System.out.println("Nenhum livro encontrado.");
         } else {
             for (LivroModel livro : livros) {
+                System.out.println("________LIVRO______________");
                 System.out.println("Título: " + livro.getTitle());
                 System.out.println("Autor: " + livro.getAutor().getName());
                 System.out.println("Idioma: " + livro.getLanguages());
                 System.out.println("Número de downloads: " + livro.getDownloadCount());
-                System.out.println("___________________________________________");
+
             }
         }
     }
@@ -60,10 +61,10 @@ public class LiteraluraController {
     public void listarAutorPorNome(String name) {
         List<AutorModel> autores = autorService.listarAutorService(name);
         for (AutorModel autor : autores) {
+            System.out.println("________AUTOR______________");
             System.out.println("Nome: " + autor.getName());
             System.out.println("Nascimento: " + autor.getBirthYear());
             System.out.println("Falecimento: " + autor.getDeathYear());
-            System.out.println("___________________________________________");
         }
     }
 

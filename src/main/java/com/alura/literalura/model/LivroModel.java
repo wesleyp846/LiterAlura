@@ -17,17 +17,6 @@ public class LivroModel {
 
     private String languages;
 
-//    //@ElementCollection
-//    @ManyToOne(cascade = CascadeType.ALL,
-//            fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "idioma_model",
-//            joinColumns = @JoinColumn(name = "livro_id"),
-//            inverseJoinColumns = @JoinColumn(name = "idioma_id")
-//    )
-//    @JoinColumn(name = "idioma_id", nullable = false)
-//    private IdiomaModel languages;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "autor_id")
     private AutorModel autor;

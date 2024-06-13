@@ -82,15 +82,15 @@ public class LiteraluraController {
         }
     }
 
-//    public void listarLivrosPorIdioma(String idioma) {
-//        List<LivroModel> livros = livroService.listarLivrosPorIdioma(idioma);
-//        for (LivroModel livro : livros) {
-//            System.out.println("Título: " + livro.getTitle());
-//            System.out.println("Autor: " + livro.getAutor().getName());
-//            System.out.println("Idiomas: " + livro.getLanguages().stream()
-//                    .map(IdiomaModel::getName)
-//                    .collect(Collectors.joining(", ")));
-//            System.out.println("-----------------------------------");
-//        }
-//    }
+    public void listarLivrosPorIdioma(String idioma) {
+        List<LivroModel> livros = livroService.listarLivrosPorIdioma(idioma);
+        for (LivroModel livro : livros) {
+            System.out.println("Título: " + livro.getTitle());
+            System.out.println("Autor: " + livro.getAutor().getName());
+            System.out.println("Idiomas: " + livro.getLanguages()
+//                    .stream().map(IdiomaModel::getName).collect(Collectors.joining(", "))
+            );
+            System.out.println("-----------------------------------");
+        }
+    }
 }

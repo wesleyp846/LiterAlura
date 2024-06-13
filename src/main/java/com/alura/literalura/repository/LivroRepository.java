@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface LivroRepository extends JpaRepository<LivroModel, Long> {
 //    @Query("SELECT l FROM LivroModel l JOIN l.languages lang WHERE lang.name = :language")
-//    List<LivroModel> findByLanguage(@Param("language") String language);
+    List<LivroModel> findByLanguages(@Param("languages") String language);
 }
 

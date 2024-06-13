@@ -55,11 +55,36 @@ public class MenuPrincipal {
                     break;
                 case 5:
                     System.out.println("___________________________________________");
-                    System.out.println("Listando livros em determinado idioma.......");
-                    System.out.println("Digite o idioma:");
-    //                    String idioma = scanner.nextLine();
-    //                    literAluraController.listarLivrosPorIdioma(idioma);
+                    int opIdioma;
+                    System.out.println("Escolha a opção do idioma desejado");
+                    System.out.println("1- pt Português");
+                    System.out.println("2- en Inglês");
+                    System.out.println("3- fr Frances");
+                    opIdioma = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (opIdioma) {
+                        case 1:
+                            System.out.println("Listando livros no idioma selecionado.......");
+                            literAluraController.listarLivrosPorIdioma("pt");
+                            break;
+
+                        case 2:
+                            System.out.println("Listando livros no idioma selecionado.......");
+                            literAluraController.listarLivrosPorIdioma("en");
+                            break;
+
+                        case 3:
+                            System.out.println("Listando livros no idioma selecionado.......");
+                            literAluraController.listarLivrosPorIdioma("fr");
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida, tente novamente.");
+                            break;
+                    }
                     break;
+
                 case 9:
                     System.out.println("Saindo...");
                     scanner.close();

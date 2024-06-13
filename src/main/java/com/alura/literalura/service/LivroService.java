@@ -23,46 +23,38 @@ public class LivroService {
 
     public void salvarLivros(List<LivroDto> livrosDto) {
         for (LivroDto livroDto : livrosDto) {
-            // Criar instâncias dos modelos
-            AutorModel autor = new AutorModel();
-            LivroModel livro = new LivroModel();
+            try {
+                // Criar instâncias dos modelos
+                AutorModel autor = new AutorModel();
+                LivroModel livro = new LivroModel();
 
-            // Configurar livro
-            livro.setTitle(livroDto.getTitle());
-            livro.setLanguages(livroDto.getLanguages());
-            livro.setDownloadCount(livroDto.getDownloadCount());
+                // Configurar livro
+                livro.setTitle(livroDto.getTitle());
+                livro.setLanguages(livroDto.getLanguages());
+                livro.setDownloadCount(livroDto.getDownloadCount());
 
-            // Configurar autor
-            autor.setName(livroDto.getAutor().getName());
-            autor.setBirthYear(livroDto.getAutor().getBirthYear());
-            autor.setDeathYear(livroDto.getAutor().getDeathYear());
+                // Configurar autor
+                autor.setName(livroDto.getAutor().getName());
+                autor.setBirthYear(livroDto.getAutor().getBirthYear());
+                autor.setDeathYear(livroDto.getAutor().getDeathYear());
 
-            // Salvar autor primeiro
-            AutorModel autorSalvo = autorRepository.save(autor);
+                // Salvar autor primeiro
+                AutorModel autorSalvo = autorRepository.save(autor);
 
-            // Associar o autor salvo ao livro
-            livro.setAutor(autorSalvo);
+                // Associar o autor salvo ao livro
+                livro.setAutor(autorSalvo);
 
-            // Salvar o livro
-            livroRepository.save(livro);
+                // Salvar o livro
+                livroRepository.save(livro);
 
-            // Associar o livro salvo ao autor
-            autorSalvo.setLivros(Collections.singletonList(livro));
-            autorRepository.save(autorSalvo); // Atualizar o autor com a lista de livros
-
-            // Debugging output
-            System.out.println("debug de controle ----------");
-            System.out.println(livroDto.getTitle());
-
-//            try {
-//                // Associando o livro ao autor
-//                livro.setAutor(autor);
-//                autor.setLivros(List.of(livro)); // Cria uma lista com o livro
-//                livroRepository.save(livro);
-//            } catch (DataIntegrityViolationException e) {
-//                System.out.println("O autor " + livro.getAutor().getName() + " já existe no banco de dados.");
-//                System.out.println("Voltando ao menu principal...");
-//            }
+                // Associar o livro salvo ao autor
+                autorSalvo.setLivros(Collections.singletonList(livro));
+                autorRepository.save(autorSalvo); // Atualizar o autor com a lista de livros
+            } catch (DataIntegrityViolationException e) {
+                System.out.println("Erro: Título de livro duplicado no banco de dados.");
+            } catch (Exception e) {
+                System.out.println("Erro ao salvar livro: " + e.getMessage());
+            }
         }
     }
 
@@ -71,7 +63,7 @@ public class LivroService {
     }
 
     public List<AutorModel> listarAutorService(String name) {
-        return autorRepository.findByName(name);
+            return autorRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<AutorModel> listarAutoresVivosNoAno(int year) {

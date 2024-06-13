@@ -15,7 +15,7 @@ public class AutorModel {
     private Integer birthYear;
     private Integer deathYear;
 
-    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<LivroModel> livros;
 //    @OneToMany(mappedBy = "autor")
 //    private List<LivroModel> livros;

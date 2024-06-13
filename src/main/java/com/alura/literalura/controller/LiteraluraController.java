@@ -64,7 +64,11 @@ public class LiteraluraController {
             System.out.println("________AUTOR______________");
             System.out.println("Nome: " + autor.getName());
             System.out.println("Nascimento: " + autor.getBirthYear());
-            System.out.println("Falecimento: " + autor.getDeathYear());
+            System.out.println("Falecimento: " + (autor.getDeathYear() != null ? autor.getDeathYear() : "Vivo"));
+            System.out.println("Livros: ");
+            for (LivroModel livro : autor.getLivros()) {
+                System.out.println("Título: " + livro.getTitle());
+            }
         }
     }
 

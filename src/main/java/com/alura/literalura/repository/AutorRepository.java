@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface AutorRepository extends JpaRepository<AutorModel, Long> {
-    List<AutorModel> findByName(String name);
+    List<AutorModel> findByNameContainingIgnoreCase(String name);
 
     @Query("SELECT a FROM AutorModel a WHERE a.birthYear <= :year AND (a.deathYear IS NULL OR a.deathYear > :year)")
     List<AutorModel> findAuthorsAliveInYear(@Param("year") int year);

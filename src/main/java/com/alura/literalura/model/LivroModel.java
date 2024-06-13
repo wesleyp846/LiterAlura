@@ -28,7 +28,7 @@ public class LivroModel {
 //    @JoinColumn(name = "idioma_id", nullable = false)
 //    private IdiomaModel languages;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "autor_id")
     private AutorModel autor;
 

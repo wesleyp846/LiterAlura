@@ -62,7 +62,7 @@ public class LiteraluraController {
         for (AutorModel autor : autores) {
             System.out.println("Nome: " + autor.getName());
             System.out.println("Nascimento: " + autor.getBirthYear());
-            System.out.println("Nascimento: " + autor.getDeathYear());
+            System.out.println("Falecimento: " + autor.getDeathYear());
             System.out.println("___________________________________________");
         }
     }
@@ -72,7 +72,7 @@ public class LiteraluraController {
         for (AutorModel autor : autores) {
             System.out.println("Nome: " + autor.getName());
             System.out.println("Nascimento: " + autor.getBirthYear());
-            System.out.println("Nascimento: " + autor.getDeathYear());
+            System.out.println("Falecimento: " + autor.getDeathYear());
             System.out.println("___________________________________________");
         }
     }

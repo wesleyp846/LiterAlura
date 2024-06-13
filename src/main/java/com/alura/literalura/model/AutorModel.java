@@ -15,8 +15,10 @@ public class AutorModel {
     private Integer birthYear;
     private Integer deathYear;
 
-    @OneToMany(mappedBy = "autor")
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<LivroModel> livros;
+//    @OneToMany(mappedBy = "autor")
+//    private List<LivroModel> livros;
 
     public Long getId() {
         return id;

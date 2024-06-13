@@ -28,9 +28,8 @@ public class LivroModel {
 //    @JoinColumn(name = "idioma_id", nullable = false)
 //    private IdiomaModel languages;
 
-    @ManyToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    @JoinColumn(name = "autor_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "autor_id")
     private AutorModel autor;
 
     public Long getId() {
@@ -72,5 +71,4 @@ public class LivroModel {
     public void setAutor(AutorModel autor) {
         this.autor = autor;
     }
-
 }

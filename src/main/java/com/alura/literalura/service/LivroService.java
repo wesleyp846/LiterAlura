@@ -24,30 +24,23 @@ public class LivroService {
     public void salvarLivros(List<LivroDto> livrosDto) {
         for (LivroDto livroDto : livrosDto) {
             try {
-                // Criar instâncias dos modelos
                 AutorModel autor = new AutorModel();
                 LivroModel livro = new LivroModel();
 
-                // Configurar livro
                 livro.setTitle(livroDto.getTitle());
                 livro.setLanguages(livroDto.getLanguages());
                 livro.setDownloadCount(livroDto.getDownloadCount());
 
-                // Configurar autor
                 autor.setName(livroDto.getAutor().getName());
                 autor.setBirthYear(livroDto.getAutor().getBirthYear());
                 autor.setDeathYear(livroDto.getAutor().getDeathYear());
 
-                // Salvar autor primeiro
                 AutorModel autorSalvo = autorRepository.save(autor);
 
-                // Associar o autor salvo ao livro
                 livro.setAutor(autorSalvo);
 
-                // Salvar o livro
                 livroRepository.save(livro);
 
-                // Associar o livro salvo ao autor
                 autorSalvo.setLivros(Collections.singletonList(livro));
                 autorRepository.save(autorSalvo); // Atualizar o autor com a lista de livros
             } catch (DataIntegrityViolationException e) {

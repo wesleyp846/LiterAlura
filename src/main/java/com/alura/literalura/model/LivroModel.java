@@ -1,7 +1,6 @@
 package com.alura.literalura.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "livro_model")
@@ -14,7 +13,6 @@ public class LivroModel {
     private String title;
 
     private int downloadCount;
-
     private String languages;
 
     @ManyToOne(fetch = FetchType.EAGER)

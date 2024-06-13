@@ -36,7 +36,6 @@ public class ApiClient {
                 } else {
                     livro.setLanguages("N/A");
                 }
-                //livro.setLanguages(mapper.convertValue(node.get("languages"), List.class));
 
                 livro.setDownloadCount(node.get("download_count").asInt());
 

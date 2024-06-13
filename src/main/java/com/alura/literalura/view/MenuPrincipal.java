@@ -17,6 +17,7 @@ public class MenuPrincipal {
         int opcao;
 
         while (true) {
+            System.out.println("___________________________________________");
             System.out.println("*** Menu Liter_Alura ***");
             System.out.println("1- Buscar livro pelo título");
             System.out.println("2- Listar livros registrados");

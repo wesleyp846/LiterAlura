@@ -10,15 +10,12 @@ public class AutorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(unique = true)
     private String name;
     private Integer birthYear;
     private Integer deathYear;
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<LivroModel> livros;
-//    @OneToMany(mappedBy = "autor")
-//    private List<LivroModel> livros;
 
     public Long getId() {
         return id;

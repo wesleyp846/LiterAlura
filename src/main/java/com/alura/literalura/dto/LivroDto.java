@@ -1,7 +1,5 @@
 package com.alura.literalura.dto;
 
-import java.util.List;
-
 public class LivroDto {
     private String title;
     private String languages;
